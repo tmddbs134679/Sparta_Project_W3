@@ -30,5 +30,9 @@ public class PlayerController : BaseController
         {
             lookDir = lookDir.normalized;
         }
+
+        isAttacking = Input.GetMouseButton(0);
     }
+
+
 }
