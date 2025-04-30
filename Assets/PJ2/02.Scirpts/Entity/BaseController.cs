@@ -40,11 +40,12 @@ public class BaseController : MonoBehaviour
             weaponHandler = GetComponentInChildren<WeaponHandler>();
         
     }
-
     protected virtual void Start()
     {
+       
 
     }
+
     protected virtual void Update()
     {
         HandleAction();
@@ -125,5 +126,23 @@ public class BaseController : MonoBehaviour
             weaponHandler?.Attack();
     }
 
+    public virtual void Death()
+    {
+        rb.velocity  = Vector3.zero;
+
+        foreach(SpriteRenderer renderer in transform.GetComponentsInChildren<SpriteRenderer>())
+        {
+            Color color = renderer.color;
+            color.a = 0.3f;
+            renderer.color = color;
+        }
+
+        foreach(Behaviour com in transform.GetComponentsInChildren<Behaviour>())
+        {
+            com.enabled = false;
+        }
+
+        Destroy(gameObject, 2f);
+    }
 
 }
