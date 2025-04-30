@@ -16,8 +16,9 @@ public class ProjectileController : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
 
-    public bool fxOnDestroy = false;
+    public bool fxOnDestroy = true;
 
+    ProjectileManager projectileManager;
     private void Awake()
     {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
@@ -51,13 +52,19 @@ public class ProjectileController : MonoBehaviour
         }
 
     }
-    private void DestroyProjectile(Vector3 position, bool v)
+    private void DestroyProjectile(Vector3 pos, bool createFx)
     {
+        if(createFx)
+        {
+            projectileManager.CreateImpactParticlesAtPos(pos, rangeWeaponHandler);
+        }
+
         Destroy(this.gameObject);
     }
 
-    public void Init(Vector2 dir, RangeWeaponHandler weaponHandler)
+    public void Init(Vector2 dir, RangeWeaponHandler weaponHandler, ProjectileManager projectileManager)
     {
+        this.projectileManager = projectileManager;
         rangeWeaponHandler = weaponHandler;
         this.dir = dir; 
         currentDuration = 0;

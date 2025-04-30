@@ -112,7 +112,7 @@ public class BaseController : MonoBehaviour
             timeSinceLastAttack += Time.deltaTime;
         }
 
-        if(isAttacking && timeSinceLastAttack> weaponHandler.Delay)
+        if(isAttacking && timeSinceLastAttack > weaponHandler.Delay)
         {
             timeSinceLastAttack = 0;
             Attack();
