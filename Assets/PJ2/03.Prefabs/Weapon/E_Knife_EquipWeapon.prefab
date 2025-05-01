@@ -56,6 +56,7 @@ MonoBehaviour:
   isOnKnockback: 0
   knockbackPower: 0.1
   knockbackTime: 0.5
+  attackSounClip: {fileID: 8300000, guid: 000fbd8241abbfa40a8efb200908338b, type: 3}
   collideBoxSize: {x: 1, y: 1}
 --- !u!1 &5052411949971979651
 GameObject:

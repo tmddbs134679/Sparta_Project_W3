@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst;
 using UnityEngine;
 
 public class ResourceController : MonoBehaviour
@@ -16,6 +17,9 @@ public class ResourceController : MonoBehaviour
     public float CurrentHealth { get; private set; }
     public float MaxHealth => stathandler.Health;
 
+    public AudioClip damageClip;
+
+    public Action<float, float> OnChangeHealth;
     private void Awake()
     {
         basecontroller = GetComponent<BaseController>();
@@ -55,9 +59,14 @@ public class ResourceController : MonoBehaviour
         CurrentHealth = CurrentHealth > MaxHealth ? MaxHealth : CurrentHealth;
         CurrentHealth = CurrentHealth < 0 ? 0 : CurrentHealth;
 
-        if(change < 0)
+        OnChangeHealth?.Invoke(CurrentHealth, MaxHealth);
+
+        if (change < 0)
         {
             animationHandler.Damage();
+
+            if(damageClip != null)
+                SoundManager.PlayClip(damageClip);
         }
 
         if(CurrentHealth <= 0f)
@@ -71,5 +80,15 @@ public class ResourceController : MonoBehaviour
     private void Death()
     {
         basecontroller.Death();
+    }
+
+    public void AddHealthChangeEvent(Action<float, float> action)
+    {
+        OnChangeHealth += action;
+    }
+
+    public void RemoveHealthChangeEvent(Action<float, float> action)
+    {
+        OnChangeHealth -= action;
     }
 }
