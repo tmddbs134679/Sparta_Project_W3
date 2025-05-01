@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8049172319710790481}
   - component: {fileID: 4174730739884202634}
   - component: {fileID: 8320349936987916635}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MainSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7684644889864903377}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WeaponPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 5569257550900533049}
   - component: {fileID: 4023135040675232385}
   - component: {fileID: -323890964693125499}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Orc_Shaman
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -301,5 +301,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterRenderer: {fileID: 4174730739884202634}
   weaponPivot: {fileID: 7684644889864903377}
-  WeaponPrefab: {fileID: 0}
+  WeaponPrefab: {fileID: 3947621730221139764, guid: 88e28f98a755b2f4b8727bfe2fc153a0, type: 3}
   followRange: 15

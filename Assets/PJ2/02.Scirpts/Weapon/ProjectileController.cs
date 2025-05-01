@@ -49,8 +49,8 @@ public class ProjectileController : MonoBehaviour
         else if(rangeWeaponHandler.target.value == (rangeWeaponHandler.target.value | (1 << collision.gameObject.layer)))
         {
 
-            ResourceController resourceController = GetComponentInChildren<ResourceController>();
-            if(resourceController != null)
+            ResourceController resourceController = collision.GetComponent<ResourceController>();
+            if (resourceController != null)
             {
                 resourceController.ChangeHealth(-rangeWeaponHandler.Power);
                 if(rangeWeaponHandler.IsKnockback)

@@ -99,5 +99,12 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-  
+    public void RemoveEnemyOnDeath(EnemyController enemy)
+    {
+        activeEnemies.Remove(enemy);
+
+        if(enemySpawnCompliete && activeEnemies.Count == 0)
+            gameManager.EndOfWave();
+    
+    }
 }

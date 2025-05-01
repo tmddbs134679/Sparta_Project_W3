@@ -31,7 +31,7 @@ public class AnimationHandler : MonoBehaviour
 
     public void InvincibilityEnd()
     {
-        animator.SetBool(IsDamage, true);
+        animator.SetBool(IsDamage, false);
     }
 
 }
