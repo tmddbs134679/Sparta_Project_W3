@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class PlayerController : BaseController
 {
@@ -20,25 +22,10 @@ public class PlayerController : BaseController
   
     protected override void HandleAction()
     {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
+ 
 
-        movementDir = new Vector2(horizontal, vertical).normalized;
+ 
 
-        Vector2 mousePos = Input.mousePosition;
-        Vector2 worldPos = camera.ScreenToWorldPoint(mousePos);
-        lookDir = worldPos - (Vector2)transform.position;
-
-        if(lookDir.magnitude < 0.9f)
-        {
-            lookDir = Vector2.zero;
-        }
-        else
-        {
-            lookDir = lookDir.normalized;
-        }
-
-        isAttacking = Input.GetMouseButton(0);
     }
 
     public override void Death()
@@ -47,4 +34,34 @@ public class PlayerController : BaseController
         gameManager.GameOver();
     }
 
+    void OnMove(InputValue iunputValue)
+    {
+        movementDir = iunputValue.Get<Vector2>();
+        movementDir = movementDir.normalized;
+    }
+
+    void OnLook(InputValue iunputValue)
+    {
+
+        Vector2 mousePos = iunputValue.Get<Vector2>();
+        Vector2 worldPos = camera.ScreenToWorldPoint(mousePos);
+        lookDir = worldPos - (Vector2)transform.position;
+
+        if (lookDir.magnitude < 0.9f)
+        {
+            lookDir = Vector2.zero;
+        }
+        else
+        {
+            lookDir = lookDir.normalized;
+        }
+
+    }
+
+    void OnFire(InputValue inputValue)
+    {
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
+        isAttacking = inputValue.isPressed;
+    }
 }
