@@ -8,7 +8,7 @@ namespace Meta
     public class UIManager : MonoBehaviour
     {
         public static UIManager Instance;
-        private Dictionary<EUIState, UIBase> uiDict = new Dictionary<EUIState, UIBase>();
+       private Dictionary<EUIState, UIBase> uiDict = new Dictionary<EUIState, UIBase>();
 
         private void Awake()
         {

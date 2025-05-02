@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 
@@ -9,17 +10,23 @@ namespace Meta
     {
         public List<Rect> spawnAreas;
         private Color gizmoColror = Color.red;
-        // Start is called before the first frame update
-        void Start()
-        {
 
+
+        public void Spawn(GameObject monster, Transform player)
+        {
+            Rect area = spawnAreas[Random.Range(0, spawnAreas.Count)];
+            Vector2 spawnPos = new Vector2(
+                Random.Range(area.xMin, area.xMax),
+                Random.Range(area.yMin, area.yMax)
+            );
+
+            GameObject monsterObj = Instantiate(monster, spawnPos, Quaternion.identity);
+            DumbMonster dumbmonster = monsterObj.GetComponent<DumbMonster>();
+
+            Vector2 dir = ((Vector2)player.position - spawnPos).normalized;
+            dumbmonster.Init(dir);
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
 
 
         private void OnDrawGizmosSelected()
