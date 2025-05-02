@@ -15,7 +15,6 @@ public class PlayerIdleState : PlayerBaseState
     public override void Enter()
     {
         stateMachine.rb.velocity = Vector2.zero;
-
     }
 
 

@@ -19,7 +19,7 @@ public class PlayerMoveState : PlayerBaseState
 
     public override void Enter()
     {
-        Debug.Log("Move");
+       
     }
 
 
@@ -27,14 +27,16 @@ public class PlayerMoveState : PlayerBaseState
     {
         Vector2 movement =  CalculateMovement();
         stateMachine.rb.velocity = movement * stateMachine.MovementSpeed;
-
+        Debug.Log("Move");
     }
 
 
     public override void Exit()
-    {  
-
+    {
+        
     }
+
+
     private Vector2 CalculateMovement()
     {
         Vector2 movement = new Vector2();

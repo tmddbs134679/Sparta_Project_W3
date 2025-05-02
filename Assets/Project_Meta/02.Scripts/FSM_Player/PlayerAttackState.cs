@@ -12,12 +12,15 @@ public class PlayerAttackState : PlayerBaseState
     public override void Enter()
     {
         timer = 0f;
-        Debug.Log("Attack Start");
+      
     }
 
     public override void Tick(float deltaTime)
     {
         timer += deltaTime;
+
+        
+        Debug.Log("Attack Start");
     }
 
     public override void Exit()

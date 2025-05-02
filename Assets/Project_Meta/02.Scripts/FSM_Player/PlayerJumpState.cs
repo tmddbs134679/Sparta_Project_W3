@@ -5,13 +5,13 @@ using UnityEngine;
 public class PlayerJumpState : PlayerBaseState
 {
     float timer = 0f;
-    float jumpDuration = 0.5f;
+    float jumpDuration = 0.1f;
 
     public PlayerJumpState(PlayerStateMachine stateMachine) : base(stateMachine) { }
 
     public override void Enter()
     {
-        stateMachine.rb.velocity = new Vector2(stateMachine.rb.velocity.x, 5f);
+        Debug.Log("Jump");
         timer = 0f;
     }
 

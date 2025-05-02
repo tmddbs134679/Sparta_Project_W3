@@ -68,5 +68,6 @@ public class PlayerStateMachine : StateMachine
 
         if (currentState == States[EPLAYERSTATE.ATTACK] && currentState.IsFinished)
             SwitchState(States[EPLAYERSTATE.IDLE]);
+
     }
 }
