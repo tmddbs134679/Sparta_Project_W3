@@ -17,7 +17,7 @@ public class EnemyManager : MonoBehaviour
     private bool enemySpawnCompliete;
 
     [SerializeField] private float timeBetweenSpawns = 0.2f;
-    [SerializeField] private float timeBetweenWaves = 1f;
+   // [SerializeField] private float timeBetweenWaves = 1f;
         
     GameManager gameManager;
 

@@ -4,30 +4,28 @@ using UnityEngine;
 
 public class PlayerMoveState : PlayerBaseState
 {
-
+    private readonly int MoveSpeedHas = Animator.StringToHash("Move");
+    private const float CrossFadeDuration = 0.1f;
     public override bool CanJump => true;
     public override bool CanAttack => true;
     public override bool IsFinished => stateMachine.InputReader.MovementValue == Vector2.zero;
     public PlayerMoveState(PlayerStateMachine statMachine) : base(statMachine){ }
 
-
-    private void Start()
-    {
-        
-    }
-
-
     public override void Enter()
     {
-       
+        Debug.Log("Move");
+        stateMachine.Animator.CrossFadeInFixedTime(MoveSpeedHas, CrossFadeDuration);
     }
 
 
     public override void Tick(float deltaTime)
     {
-        Vector2 movement =  CalculateMovement();
-        stateMachine.rb.velocity = movement * stateMachine.MovementSpeed;
-        Debug.Log("Move");
+        Move();
+
+        if(stateMachine.InputReader.MovementValue == Vector2.zero)
+        {
+            stateMachine.SwitchState(stateMachine.States[EPLAYERSTATE.IDLE]);
+        }
     }
 
 
@@ -37,15 +35,6 @@ public class PlayerMoveState : PlayerBaseState
     }
 
 
-    private Vector2 CalculateMovement()
-    {
-        Vector2 movement = new Vector2();
-
-        movement.x = stateMachine.InputReader.MovementValue.x;
-        movement.y = stateMachine.InputReader.MovementValue.y;
-
-        return movement;
-    }
 
 
 }
