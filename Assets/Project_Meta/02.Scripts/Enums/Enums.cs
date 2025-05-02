@@ -10,3 +10,11 @@ public enum EPLAYERSTATE
     JUMP,
     DEAD
 }
+
+public enum EUIState
+{
+    GAMESTART,
+    HOME,
+    GAME,
+    GAMEOVER
+}

@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 
-public enum EUIState
-{
-    HOME,
-    GAME,
-    GAMEOVER
-}
+//public enum EUIState
+//{
+//    HOME,
+//    GAME,
+//    GAMEOVER
+//}
 public class UIManager : MonoBehaviour
 {
     HomeUI homeUI;
