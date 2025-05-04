@@ -11,9 +11,10 @@ namespace Meta
         public static GameManager instance;
 
         public static event Action OnGameStart;
+        public static event Action OnGameEnd;
 
         public int GamePoint;
-        public int GameStartCount = 3;
+        private int GameStartCount;
 
         private void Awake()
         {
@@ -22,13 +23,25 @@ namespace Meta
 
         private void Start()
         {
+            GameStartCount = 3;
+            Time.timeScale = 1;
             HandleGameStart();
         }
 
-        public void GameStart()
+        private void GameStart()
         {
             OnGameStart?.Invoke();
         }
+
+        public void GameEnd()
+        {
+            Time.timeScale = 0;
+
+            UIManager.Instance.ShowUI(EUIState.GAMEOVER);
+
+            OnGameEnd?.Invoke();
+        }
+
         private void HandleGameStart()
         {
             StartCoroutine(GameStartRoutine());
@@ -51,9 +64,6 @@ namespace Meta
             
             GameStart();
         }
-        public void GameEnd()
-        {
-
-        }
+  
     }
 }

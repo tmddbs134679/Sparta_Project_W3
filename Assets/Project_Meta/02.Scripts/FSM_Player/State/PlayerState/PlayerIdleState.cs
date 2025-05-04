@@ -17,6 +17,12 @@ public class PlayerIdleState : PlayerBaseState
         Debug.Log("Idle");
         stateMachine.Animator.CrossFadeInFixedTime(IdleSpeedHas, CrossFadeDuration);
         stateMachine.InputReader.OnJumpEvent += OnJumpInput;
+        stateMachine.InputReader.OnAttackEvent += OnAttackInput;
+    }
+
+    private void OnAttackInput()
+    {
+        stateMachine.SwitchState(stateMachine.States[EPLAYERSTATE.ATTACK]);
     }
 
     private void OnJumpInput()

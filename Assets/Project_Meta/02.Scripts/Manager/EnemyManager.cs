@@ -14,20 +14,24 @@ namespace Meta
 
         public void Spawn(GameObject monster, Transform player)
         {
+
+            Vector2 ranPos = RandomPos();
+            Vector2 dir = ((Vector2)player.position - ranPos).normalized;
+            MonsterFactoryManager.Instance.SpawnMonster(monster, ranPos, dir);
+        
+        }
+
+        
+        private Vector2 RandomPos()
+        {
             Rect area = spawnAreas[Random.Range(0, spawnAreas.Count)];
             Vector2 spawnPos = new Vector2(
                 Random.Range(area.xMin, area.xMax),
                 Random.Range(area.yMin, area.yMax)
             );
 
-            GameObject monsterObj = Instantiate(monster, spawnPos, Quaternion.identity);
-            DumbMonster dumbmonster = monsterObj.GetComponent<DumbMonster>();
-
-            Vector2 dir = ((Vector2)player.position - spawnPos).normalized;
-            dumbmonster.Init(dir);
+            return spawnPos;
         }
-
-
 
         private void OnDrawGizmosSelected()
         {

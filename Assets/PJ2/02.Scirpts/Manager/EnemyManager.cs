@@ -75,7 +75,8 @@ public class EnemyManager : MonoBehaviour
         Vector2 randomPos = new Vector2
             (
                 Random.Range(randomArea.xMin, randomArea.xMax),
-                Random.Range(randomArea.yMin, randomArea.yMax));
+                Random.Range(randomArea.yMin, randomArea.yMax)
+            );
 
         GameObject spawnEnemy = Instantiate(randomPrefab, new Vector3(randomPos.x, randomPos.y), Quaternion.identity);
         EnemyController enemyController = spawnEnemy.GetComponent<EnemyController>();
