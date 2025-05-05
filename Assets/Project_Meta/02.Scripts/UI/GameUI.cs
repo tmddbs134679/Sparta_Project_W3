@@ -10,12 +10,11 @@ namespace Meta
 {
     public class GameUI : UIBase
     {
-        [SerializeField] private TextMeshProUGUI pointText;
+        [SerializeField] private TextMeshProUGUI StageText;
         [SerializeField] private TextMeshProUGUI countdownText;
+        [SerializeField] private TextMeshProUGUI pointText;
 
         public override EUIState UIType => EUIState.HOME;
-
-
 
         public void UpdateCountdown(int countTxt)
         {
@@ -25,7 +24,10 @@ namespace Meta
                 countdownText.gameObject.SetActive(false);
         }
 
-
+        public void UpdatePoint(int point)
+        {
+           pointText.text = point.ToString();   
+        }
 
     }
 

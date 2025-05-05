@@ -45,10 +45,12 @@ public class Projectile : MonoBehaviour
         {
             DumbMonster monster = collision.GetComponent<DumbMonster>();
 
-            if(monster != null )
+            if(monster != null)
             {
                 monster.OnHit();
             }
+
+            Meta.GameManager.instance.AddScore(monster.Point);
 
             OnDead?.Invoke(this);
         }

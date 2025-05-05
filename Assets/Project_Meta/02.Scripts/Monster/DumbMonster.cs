@@ -8,7 +8,7 @@ public class DumbMonster : MonoBehaviour
     private Vector3 moveDirection;
     public float speed = 3f;
     public event Action<DumbMonster> OnDead;
-
+    public int Point { get; private set; } = 1;
 
     public void Init(Vector3 direction)
     {

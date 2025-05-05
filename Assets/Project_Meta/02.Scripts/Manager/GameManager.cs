@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 
 namespace Meta
@@ -36,7 +37,7 @@ namespace Meta
         public void GameEnd()
         {
             Time.timeScale = 0;
-
+            RankSort(GamePoint);
             UIManager.Instance.ShowUI(EUIState.GAMEOVER);
 
             OnGameEnd?.Invoke();
@@ -64,6 +65,38 @@ namespace Meta
             
             GameStart();
         }
-  
+
+        public void AddScore(int point)
+        {
+            GameUI gameUI = UIManager.Instance.GetUI<GameUI>(EUIState.HOME);
+            GamePoint += point;
+            gameUI.UpdatePoint(GamePoint);
+        }
+
+        public void RankSort(int gamePoint)
+        {
+            int rank1 = PlayerPrefs.GetInt("Rank1", 0);
+            int rank2 = PlayerPrefs.GetInt("Rank2", 0);
+            int rank3 = PlayerPrefs.GetInt("Rank3", 0);
+
+            if (gamePoint > rank1)
+            {
+                PlayerPrefs.SetInt("Rank3", rank2);
+                PlayerPrefs.SetInt("Rank2", rank1);
+                PlayerPrefs.SetInt("Rank1", gamePoint);
+            }
+            else if (gamePoint > rank2)
+            {
+                PlayerPrefs.SetInt("Rank3", rank2);
+                PlayerPrefs.SetInt("Rank2", gamePoint);
+            }
+            else if (gamePoint > rank3)
+            {
+                PlayerPrefs.SetInt("Rank3", gamePoint);
+            }
+
+            PlayerPrefs.Save();
+        }
+
     }
 }
