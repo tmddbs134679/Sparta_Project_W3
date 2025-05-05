@@ -20,10 +20,7 @@ public class PlayerIdleState : PlayerBaseState
         stateMachine.InputReader.OnAttackEvent += OnAttackInput;
     }
 
-    private void OnAttackInput()
-    {
-        stateMachine.SwitchState(stateMachine.States[EPLAYERSTATE.ATTACK]);
-    }
+
 
     private void OnJumpInput()
     {
@@ -43,6 +40,7 @@ public class PlayerIdleState : PlayerBaseState
     public override void Exit()
     {
         stateMachine.InputReader.OnJumpEvent -= OnJumpInput;
+        stateMachine.InputReader.OnAttackEvent -= OnAttackInput;
     }
 
 

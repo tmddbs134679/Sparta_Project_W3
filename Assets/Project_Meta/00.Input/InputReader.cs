@@ -15,7 +15,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     private Controls controls;
 
     private void Start()
-    {
+    {                
         controls = new Controls();
         controls.Player.SetCallbacks(this);
 

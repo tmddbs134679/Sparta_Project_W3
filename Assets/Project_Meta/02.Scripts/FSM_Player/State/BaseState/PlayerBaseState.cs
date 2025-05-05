@@ -39,6 +39,12 @@ public abstract class PlayerBaseState : State
         //가독성때매 true : false 추가함
         stateMachine.SpriteRenderer.flipX = movement.x < 0 ? true : false;
     }
+    protected void OnAttackInput()
+    {
+        if (!stateMachine.CanAttack)
+            return;
 
+        stateMachine.SwitchState(stateMachine.States[EPLAYERSTATE.ATTACK]);
+    }
 
 }

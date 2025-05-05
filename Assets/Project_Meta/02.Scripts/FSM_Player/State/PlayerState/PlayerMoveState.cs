@@ -15,6 +15,7 @@ public class PlayerMoveState : PlayerBaseState
     {
         Debug.Log("Move");
         stateMachine.Animator.CrossFadeInFixedTime(MoveSpeedHas, CrossFadeDuration);
+        stateMachine.InputReader.OnAttackEvent += OnAttackInput;
     }
 
 
@@ -31,7 +32,7 @@ public class PlayerMoveState : PlayerBaseState
 
     public override void Exit()
     {
-        
+        stateMachine.InputReader.OnAttackEvent -= OnAttackInput;
     }
 
 

@@ -25,4 +25,9 @@ public class DumbMonster : MonoBehaviour
         }
 
     }
+
+    public void OnHit()
+    {
+        OnDead?.Invoke(this);
+    }
 }

@@ -15,6 +15,11 @@ public class PlayerStateMachine : StateMachine
 
     [field: SerializeField] public SpriteRenderer SpriteRenderer { get; private set; }
 
+    public bool CanAttack => Time.time >= lastAttackTime + AttackCooldown;
+
+    public float AttackCooldown = 0.5f;
+
+    public float lastAttackTime = -999f;
     public bool IsFacingRight { get; private set; } = true;
 
     private void Awake()
