@@ -18,19 +18,19 @@
 
 | Script명                           | 설명                                                         |
 | ---------------------------------- | ------------------------------------------------------------ |
-| [PoolFactory.cs](./PoolFactory.cs) | Generic Pooling 시스템. 오브젝트를 미리 생성하고 관리합니다. |
+| [PoolFactory.cs](../PoolFactory.cs) | Generic Pooling 시스템. 오브젝트를 미리 생성하고 관리합니다. |
 
 ### MonsterFactoryManager
 
 | Script명                                              | 설명                                                         |
 | ----------------------------------------------------- | ------------------------------------------------------------ |
-| [MonsterFactoryManager.cs](/MonsterFactoryManager.cs) | 몬스터 생성 전용 Factory. 몬스터를 풀에서 가져오고, 반환합니다. |
+| [MonsterFactoryManager.cs](MonsterFactoryManager.cs) | 몬스터 생성 전용 Factory. 몬스터를 풀에서 가져오고, 반환합니다. |
 
 ### ProjectileFactoryManager
 
 | Script명                                                    | 설명                                                         |
 | ----------------------------------------------------------- | ------------------------------------------------------------ |
-| [ProjectileFactoryManager.cs](/ProjectileFactoryManager.cs) | 투사체 생성 전용 Factory. 투사체를 풀에서 가져오고, 발사 및 반환합니다. |
+| [ProjectileFactoryManager.cs](ProjectileFactoryManager.cs) | 투사체 생성 전용 Factory. 투사체를 풀에서 가져오고, 발사 및 반환합니다. |
 
 
 
