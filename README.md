@@ -16,6 +16,8 @@
 
 ---
 
+[![실행 영상](http://img.youtube.com/vi/유튜브영상ID/0.jpg)](https://youtu.be/Me3Gir8e4sE)
+
 ## 🚀 주요 시스템 설계
 
 ### 🧠 Player 이동 (FSM 패턴 기반)
