@@ -31,7 +31,7 @@
 ## 🚀 주요 시스템 설계
 
 ### 🧠 Player 이동 (FSM 패턴 기반)
-[코드샘플](./Project_Meta/02.Scripts/FSM_Player/readme.md)
+[코드샘플](Assets/Project_Meta/02.Scripts/FSM_Player/readme.md)
 
 기존 단순 이동 방식 대신 **StateMachine (FSM)** 패턴을 도입하여  
 `Idle`, `Move`, `Attack` ,`Jump` 등의 상태를  State를 상속받은 **PlayerState**로 명확히 구분했습니다.
