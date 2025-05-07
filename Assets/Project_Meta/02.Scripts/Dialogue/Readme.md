@@ -27,7 +27,7 @@ CSV 기반으로 작성된 대사 데이터를 불러와서 NPC의 상태나 선
 
 | Script명                                   | 설명                                               |
 | ------------------------------------------ | -------------------------------------------------- |
-| [DialogueController.cs](/DialogueModel.cs) | 대화의 흐름을 제어하고 플레이어 입력을 처리합니다. |
+| [DialogueController.cs](DialogueController.cs) | 대화의 흐름을 제어하고 플레이어 입력을 처리합니다. |
 
 ### DialogueUI
 
