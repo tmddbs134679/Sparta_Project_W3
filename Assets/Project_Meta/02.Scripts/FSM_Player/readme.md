@@ -22,7 +22,7 @@ FSM 패턴 기반의 Player 상태를 구현한 코드입니다.
 
 | Script명 | 설명 |
 |----------|-----|
-| [PlayerStateMachine.cs](./Scripts/PlayerStateMachine.cs) | FSM 메인 매니저. 상태 전환 및 현재 상태 갱신 처리 |
+| [PlayerStateMachine.cs](./StateMachine/PlayerStateMachine.cs) | FSM 메인 매니저. 상태 전환 및 현재 상태 갱신 처리 |
 
 ### PlayerIdleState
 
