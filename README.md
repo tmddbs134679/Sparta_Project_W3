@@ -45,6 +45,7 @@
 ---
 
 ### 🎮 Minigame (Stage + ScriptableObject + ObjectPool + Factory + Rank System)
+[코드샘플](Assets/Project_Meta/02.Scripts/Manager/Readme.md)
 
 **3단계 Stage 시스템**으로 미니게임을 구성하고,  
 각 스테이지 데이터는 **ScriptableObject**를 사용하여 효율적으로 관리합니다.
@@ -60,7 +61,7 @@
 ---
 
 ### 🧑‍🤝‍🧑 NPC 대화 시스템 (CSV 데이터 기반)
-
+[코드샘플](Assets/Project_Meta/02.Scripts/Dialogue/Readme.md)
 NPC 대사는 **CSV 파일**로 외부에서 관리하여 쉽게 추가 및 수정이 가능합니다.
 
 - CSV를 통해 대사, 선택지, NPC 이름을 관리
