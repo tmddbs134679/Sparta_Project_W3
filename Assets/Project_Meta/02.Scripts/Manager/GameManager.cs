@@ -22,11 +22,18 @@ namespace Meta
             instance = this;
         }
 
+   
+
         private void Start()
         {
+            StageManager.instance.OnStageClear += HandleStageClear;
             GameStartCount = 3;
             Time.timeScale = 1;
             HandleGameStart();
+        }
+        private void OnDisable()
+        {
+            StageManager.instance.OnStageClear -= HandleStageClear;
         }
 
         private void GameStart()
@@ -38,9 +45,13 @@ namespace Meta
         {
             Time.timeScale = 0;
             RankSort(GamePoint);
-            UIManager.Instance.ShowUI(EUIState.GAMEOVER);
+            UIManager.Instance.ShowUI(EUISTATE.GAMEOVER);
 
             OnGameEnd?.Invoke();
+        }
+        private void HandleStageClear()
+        {
+            StageManager.instance.NextStage();
         }
 
         private void HandleGameStart()
@@ -53,7 +64,7 @@ namespace Meta
             
             while (GameStartCount > -1)
             {
-                GameUI gameUI = UIManager.Instance.GetUI<GameUI>(EUIState.HOME);
+                GameUI gameUI = UIManager.Instance.GetUI<GameUI>(EUISTATE.HOME);
 
                 gameUI.UpdateCountdown(GameStartCount);
                 yield return new WaitForSeconds(1f);
@@ -68,7 +79,7 @@ namespace Meta
 
         public void AddScore(int point)
         {
-            GameUI gameUI = UIManager.Instance.GetUI<GameUI>(EUIState.HOME);
+            GameUI gameUI = UIManager.Instance.GetUI<GameUI>(EUISTATE.HOME);
             GamePoint += point;
             gameUI.UpdatePoint(GamePoint);
         }

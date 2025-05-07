@@ -8,7 +8,7 @@ namespace Meta
     public class UIManager : MonoBehaviour
     {
         public static UIManager Instance;
-       private Dictionary<EUIState, UIBase> uiDict = new Dictionary<EUIState, UIBase>();
+       private Dictionary<EUISTATE, UIBase> uiDict = new Dictionary<EUISTATE, UIBase>();
 
         private void Awake()
         {
@@ -21,17 +21,17 @@ namespace Meta
             }
         }
 
-        public T GetUI<T>(EUIState type) where T : UIBase
+        public T GetUI<T>(EUISTATE type) where T : UIBase
         {
             return uiDict[type] as T;
         }
 
-        public void ShowUI(EUIState type)
+        public void ShowUI(EUISTATE type)
         {
             uiDict[type].Show();
         }
 
-        public void HideUI(EUIState type)
+        public void HideUI(EUISTATE type)
         {
             uiDict[type].Hide();
         }

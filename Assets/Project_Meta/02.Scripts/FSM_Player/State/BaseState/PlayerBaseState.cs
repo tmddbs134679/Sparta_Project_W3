@@ -44,6 +44,9 @@ public abstract class PlayerBaseState : State
         if (!stateMachine.CanAttack)
             return;
 
+        if (MainGameManager.Instance.CurrentState == EGAMESTATE.LOBBY)
+            return;
+
         stateMachine.SwitchState(stateMachine.States[EPLAYERSTATE.ATTACK]);
     }
 

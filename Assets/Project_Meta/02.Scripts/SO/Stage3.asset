@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Stage3
   m_EditorClassIdentifier: 
   StageNumber: 1
-  monsters:
-  - {fileID: 9214280772203560979, guid: 927d627e48891c544bc4c3ff4ba3263f, type: 3}
-  monsterSpeed: 3
+  monster: {fileID: 1433855795482795433, guid: c0755c2a81715bf4bb372f05eaa06135, type: 3}
+  SpawnCount: 30
+  spawnInterval: 0.1

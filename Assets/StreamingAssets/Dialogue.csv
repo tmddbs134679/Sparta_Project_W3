@@ -1,0 +1,5 @@
+NPC_ID,NPC_Name,HasOptions,NPC_Image,Dialogue_ID,State,Sequence,Text,Player,NextDialogueID
+NPC_001,DWAPF,TRUE,NPC_001,D_001,Default,1,이곳은 미니게임을 할 수 있는 던전이라네. 미니게임에 대한 설명을 들어보겠나?,예;아니오,D_002;D_003
+NPC_001,DWAPF,FALSE,NPC_001,D_002,Default,2,Stage마다 몬스터가 나오는데 몬스터를 죽이면 포인트를 획득할 수 있다네. 몬스터에게 잡히면 게임에서 패배하니 조심하도록..,,
+NPC_001,DWAPF,FALSE,NPC_001,D_003,Default,2,그럼 행운을 비네.,,
+NPC_002,ELF,FALSE,NPC_002,D_004,Default,1,어딜 초보자가 이 구역을 넘보는거야? 당장 돌아가!,,

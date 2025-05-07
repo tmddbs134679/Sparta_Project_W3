@@ -12,10 +12,23 @@ public enum EPLAYERSTATE
 }
 
 
-public enum EUIState
+public enum EUISTATE
 {
     GAMESTART,
     HOME,
     GAME,
-    GAMEOVER
+    GAMEOVER,
+    DIALOGUE,
+}
+
+public enum EGAMESTATE
+{
+    LOBBY,
+    MINIGAME
+}
+
+public enum ENPCState
+{
+    Default,
+    Simulation
 }

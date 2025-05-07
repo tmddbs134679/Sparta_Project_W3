@@ -934,7 +934,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &276278821
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5832,7 +5832,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 60
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6746,6 +6746,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startBtn: {fileID: 710722574}
   endBtn: {fileID: 1255641698}
+  rank1: {fileID: 903491567}
+  rank2: {fileID: 422605714}
+  rank3: {fileID: 641245106}
 --- !u!1 &1020237349
 GameObject:
   m_ObjectHideFlags: 0
@@ -7735,7 +7738,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 317b1d30a527b7f4ca68b44868666245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentStageData: {fileID: 11400000, guid: 8cf5fdbf90cae114fa527ff1b5f59c20, type: 2}
+  stageDatas:
+  - {fileID: 11400000, guid: 8cf5fdbf90cae114fa527ff1b5f59c20, type: 2}
+  - {fileID: 11400000, guid: d4a0780fc378fff408d4439dde38778f, type: 2}
+  - {fileID: 11400000, guid: 4cf309ad7587f2b44b661f013237b402, type: 2}
   enemyManager: {fileID: 59500088}
   player: {fileID: 52155380}
 --- !u!4 &1580465272
@@ -9303,7 +9309,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2110472267
 RectTransform:
   m_ObjectHideFlags: 0

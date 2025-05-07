@@ -6,7 +6,7 @@ namespace Meta
 {
     public abstract class UIBase : MonoBehaviour
     {
-        public abstract EUIState UIType { get; }
+        public abstract EUISTATE UIType { get; }
 
         public virtual void Show()
         {

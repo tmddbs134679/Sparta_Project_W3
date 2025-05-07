@@ -15,7 +15,7 @@ public class GameEndUI : UIBase
     [SerializeField] private TextMeshProUGUI rank3;
 
 
-    public override EUIState UIType => EUIState.GAMEOVER;
+    public override EUISTATE UIType => EUISTATE.GAMEOVER;
 
  
     void Start()
@@ -32,14 +32,14 @@ public class GameEndUI : UIBase
        
     }
     private void ReStartMiniGame()
-    {
-        SceneManager.LoadScene("MiniGame");
+    {   
+        MainGameManager.Instance.LoadSceneAsync(EGAMESTATE.MINIGAME);
     }
 
     private void ReturnToLobby()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("Meta");
+        MainGameManager.Instance.LoadSceneAsync(EGAMESTATE.LOBBY);
     }
 
     private void UpdateRank()

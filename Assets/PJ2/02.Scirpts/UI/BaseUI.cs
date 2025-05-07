@@ -12,9 +12,9 @@ public abstract class BaseUI : MonoBehaviour
         this.UIManager = uiManager;
     }
 
-    protected abstract EUIState GetUIState();
+    protected abstract EUISTATE GetUIState();
 
-    public void SetActive(EUIState state)
+    public void SetActive(EUISTATE state)
     {
         this.gameObject.SetActive(GetUIState() == state);
     }

@@ -1,4 +1,5 @@
 using Meta;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,11 +9,23 @@ public class StageManager : MonoBehaviour
   
     static public StageManager instance;
 
-    public StageData currentStageData;
+    public List<StageData> stageDatas;
+    public int currentStageIndex = 0;
+    private StageData CurrentStageData => stageDatas[currentStageIndex];
     public Meta.EnemyManager enemyManager;
     public Transform player;
+    private int aliveEnemies = 0;
 
-    private void OnEnable()
+    public event Action OnStageClear;
+
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
+
+    private void Start()
     {
         Meta.GameManager.OnGameStart += StartStage;
     }
@@ -22,11 +35,7 @@ public class StageManager : MonoBehaviour
         Meta.GameManager.OnGameStart -= StartStage;
     }
 
-    private void Awake()
-    {
-        instance = this; 
-        
-    }
+
     public void StartStage()
     {
         Debug.Log("Stage Start");
@@ -37,13 +46,30 @@ public class StageManager : MonoBehaviour
     {
         int spawnedCount = 0;
 
-        while (spawnedCount < currentStageData.SpawnCount)
+        while (spawnedCount < CurrentStageData.SpawnCount)
         {
-            enemyManager.Spawn(currentStageData.monster, player);
+            enemyManager.Spawn(CurrentStageData.monster, player);
             spawnedCount++;
-
-            yield return new WaitForSeconds(currentStageData.spawnInterval);
+            aliveEnemies++;
+            yield return new WaitForSeconds(CurrentStageData.spawnInterval);
         }
+
+        OnStageClear?.Invoke();
+    }
+
+    public void NextStage()
+    {
+        currentStageIndex++;
+
+        if (currentStageIndex >= stageDatas.Count)
+        {
+            return;
+            currentStageIndex = 0;
+        }
+
+        Meta.GameUI gameUI = Meta.UIManager.Instance.GetUI<Meta.GameUI>(EUISTATE.HOME);
+        gameUI.UpdateStage(currentStageIndex + 1);
+        StartStage();
     }
 }
 

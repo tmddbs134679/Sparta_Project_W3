@@ -14,7 +14,7 @@ namespace Meta
         [SerializeField] private TextMeshProUGUI countdownText;
         [SerializeField] private TextMeshProUGUI pointText;
 
-        public override EUIState UIType => EUIState.HOME;
+        public override EUISTATE UIType => EUISTATE.HOME;
 
         public void UpdateCountdown(int countTxt)
         {
@@ -27,6 +27,11 @@ namespace Meta
         public void UpdatePoint(int point)
         {
            pointText.text = point.ToString();   
+        }
+
+        public void UpdateStage(int stage)
+        {
+            StageText.text = stage.ToString();
         }
 
     }

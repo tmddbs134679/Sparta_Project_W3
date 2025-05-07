@@ -36,11 +36,14 @@ public class PoolFactory<T> where T : MonoBehaviour
     {
         if (pool.Count == 0)
         {
-          
+            int newCount = initCount * 2;
             for (int i = 0; i < initCount; i++)
             {
                 CreateNewObject();
             }
+
+
+            initCount = newCount;
         }
 
         T obj = pool.Dequeue();

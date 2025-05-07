@@ -9,7 +9,7 @@ public class MonsterFactoryManager : MonoBehaviour
     private Dictionary<GameObject, PoolFactory<DumbMonster>> pools = new Dictionary<GameObject, PoolFactory<DumbMonster>>();
 
     [SerializeField] private Transform poolObjects;
-    private readonly int MONSTERCOUNT = 50;
+    private readonly int MONSTERCOUNT = 10;
 
     private void Awake()
     {

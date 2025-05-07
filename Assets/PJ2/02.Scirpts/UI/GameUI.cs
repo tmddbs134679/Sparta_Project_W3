@@ -25,8 +25,8 @@ public class GameUI : BaseUI
         waveText.text = wave.ToString();
     }
 
-    protected override EUIState GetUIState()
+    protected override EUISTATE GetUIState()
     {
-        return EUIState.GAME;
+        return EUISTATE.GAME;
     }
 }

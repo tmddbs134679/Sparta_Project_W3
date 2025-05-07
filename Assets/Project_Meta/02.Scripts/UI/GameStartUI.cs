@@ -12,7 +12,7 @@ public class GameStartUI : UIBase
 
     [SerializeField]private Button startBtn;
     [SerializeField] private Button exitBtn;
-    public override EUIState UIType => EUIState.GAMESTART;
+    public override EUISTATE UIType => EUISTATE.GAMESTART;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +24,8 @@ public class GameStartUI : UIBase
 
     private void OnClickStart()
     {
-        SceneManager.LoadScene("MiniGame");
+        MainGameManager.Instance.LoadSceneAsync(EGAMESTATE.MINIGAME);
+
     }
     private void OnClickExit()
     {

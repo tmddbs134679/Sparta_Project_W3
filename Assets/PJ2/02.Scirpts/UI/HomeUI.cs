@@ -27,8 +27,8 @@ public class HomeUI : BaseUI
 
  
 
-    protected override EUIState GetUIState()
+    protected override EUISTATE GetUIState()
     {
-        return EUIState.HOME;
+        return EUISTATE.HOME;
     }
 }

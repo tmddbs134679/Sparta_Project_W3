@@ -26,8 +26,8 @@ public class GameOverUI : BaseUI
     {
         Application.Quit();
     }
-    protected override EUIState GetUIState()
+    protected override EUISTATE GetUIState()
     {
-        return EUIState.GAMEOVER;
+        return EUISTATE.GAMEOVER;
     }
 }
