@@ -25,7 +25,7 @@
 
 > 아래 영상에서 프로젝트의 전체 실행 모습을 확인할 수 있습니다.
 
-[![실행 영상](http://img.youtube.com/vi/유튜브영상ID/0.jpg)](https://youtu.be/Me3Gir8e4sE)
+[![유튜브](http://img.youtube.com/vi/유튜브영상ID/0.jpg)](https://youtu.be/Me3Gir8e4sE)
 
 ---
 
